@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.small-flag {
+    width: 65px;
+}
+.pie {
+    font-size: 14px;
+    font-style: italic;
+    font-family: monospace;
+    letter-spacing: 4px;
+    color: #b80935;
+    text-align:right;
+    word-spacing: 8px
+}
