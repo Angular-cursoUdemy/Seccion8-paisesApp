@@ -4,7 +4,6 @@
                     <th> # </th>
                     <th> Bandera </th>
                     <th> Nombre </th>
-                    <th> Capital </th>
                     <th> Población </th>
                     <th></th>
                 </tr>
@@ -13,15 +12,15 @@
                 <tr *ngFor="let pais of paises; let i = index">
                     <td>{{i +1}}</td>
                     <td>
-                        <img [src]="pais.flags.png" class="small-flag" >
+                        <img [src]="pais.flag" class="small-flag" >
                             
                     </td>
-                    <td>{{ pais.name.common}}</td>
-                    <td>{{pais. capital}}</td>
+                    <td>{{ pais.name }}</td>
                     <td>{{ pais.population | number }}</td>
                     <td>
-                        <a [routerLink]="['/pais', pais.cca2]">Ver...</a>
+                        <a [routerLink]="['/pais', pais.alpha2Code]">Ver...</a>
                     </td>
                 </tr>
             </tbody>
 </table>
+

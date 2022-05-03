@@ -11,30 +11,32 @@ import { Country } from '../../interfaces/pais.interface';
   ]
 })
 export class VerPaisComponent implements OnInit {
-  pais!: Country;
+   pais!: Country;
   constructor( 
     private activatedRoute: ActivatedRoute,
     private paisService   : PaisService) { }
 
   ngOnInit(): void {
 
-  // this.activatedRoute.params
-  //   .pipe(
-  //     switchMap( ( param ) => this.paisService.getPaisPorAlpha( param [0]))
-  //   )
-  //   .subscribe ( resp => {
-  //     console.log( resp )  
-  //   })
-this.activatedRoute.params
+  this.activatedRoute.params
+    .pipe(
+      switchMap( ( { id } ) => this.paisService.getPaisPorAlpha( id )),
+      tap (console.log))
+    .subscribe ( pais => this.pais = pais);
+// this.activatedRoute.params
 
-  .subscribe( ({ id }) => {
-    console.log( id );
-    this.paisService.getPaisPorAlpha ( id )
-      .subscribe ( pais => {
-        console.log(pais);
-      });
-  })
+//   .subscribe( ({ id }) => {
+//     console.log( id );
+//     this.paisService.getPaisPorAlpha ( id )
+//       .subscribe ( pais => {
+//         console.log(pais);
+//       });
+  
 
  }
 
 }
+function tab(log: { (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }): import("rxjs").OperatorFunction<Country[], unknown> {
+  throw new Error('Function not implemented.');
+}
+

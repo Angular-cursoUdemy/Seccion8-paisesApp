@@ -8,23 +8,34 @@
 <ng-template #divPais>
     <div class="row">
         <div class="col-12">
-            <h1>País: <small>{{ pais.name.common }}</small></h1>
+            <h1>País: <small>{{ pais.nativeName}}</small></h1>
         </div>
     </div>
     <div class="row">
         <div class="col-4">
             <h3>Bandera</h3>
-            <!--<img [src]="pais.flags.png" class="img-thumbnail"/>-->
+            <img [src]="pais.flags.png" class="img-thumbnail"/>
         </div>
         <div class="col">
             <h3>Información</h3>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <strong>Población: </strong>Kk entre llaves
+                    <strong>Población: </strong>{{ pais.population | number }}
+                    <strong>Continente: </strong>{{ pais.region }}
                 </li>
+                <hr>
+                <li class="list-group-item">
+                    <strong>Frontera: </strong>{{ pais.borders }}
+                    <hr>
+                    <strong>Capital: </strong>{{ pais.capital }}
+                    <hr>
+                    <strong>Superficie: </strong>{{ pais.area | number }} km2
+                </li>
+
             </ul>
         </div>
     </div>
+    <footer class="pie">Anka Motz</footer>
 </ng-template>
 
 
